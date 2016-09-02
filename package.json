@@ -21,6 +21,11 @@
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-sass": "1.0.0",
     "grunt-contrib-uglify": "2.0.0",
-    "gulp-cli": "1.2.2"
+    "gulp": "3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-sass": "2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "pump": "^1.0.1",
+    "run-sequence": "^1.2.2"
   }
 }
