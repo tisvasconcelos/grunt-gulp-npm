@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "config": {
+    "assetbuild": "assets/build/",
+    "assetsrc": "assets/src/",
+    "customscript": "npm.js"
+  },
   "scripts": {
-    "clean": "rm -rf assets/build/",
-    "uglify": "mkdir -p assets/build/js && cp -a assets/src/js/. assets/build/js/ && find assets/build/js/ -name '*.js' -exec uglifyjs {} -c -m -o {} \\;",
-    "sass": "node-sass assets/src/css/ -r --include-path assets/src/css/ --output-style compressed --source-map true -o assets/build/css/",
-    "build": "npm run clean && npm run sass && npm run uglify && node npm.js",
+    "clean": "rm -rf $npm_package_config_assetbuild",
+    "uglify": "mkdir -p $npm_package_config_assetbuild/js && cp -a $npm_package_config_assetsrc/js/. $npm_package_config_assetbuild/js/ && find $npm_package_config_assetbuild/js/ -name '*.js' -exec uglifyjs {} -c -m -o {} \\;",
+    "sass": "node-sass $npm_package_config_assetsrc/css/ -r --include-path $npm_package_config_assetsrc/css/ --output-style compressed --source-map true -o $npm_package_config_assetbuild/css/",
+    "prebuild": "npm run clean",
+    "build": "npm run sass && npm run uglify",
+    "postbuild": "node $npm_package_config_customscript",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

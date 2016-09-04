@@ -1,1 +1,1 @@
-console.log('NPM script');
+console.log('Custom node script');
