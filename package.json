@@ -7,7 +7,7 @@
     "clean": "rm -rf assets/build/",
     "uglify": "mkdir -p assets/build/js && cp -a assets/src/js/. assets/build/js/ && find assets/build/js/ -name '*.js' -exec uglifyjs {} -c -m -o {} \\;",
     "sass": "node-sass assets/src/css/ -r --include-path assets/src/css/ --output-style compressed --source-map true -o assets/build/css/",
-    "build": "npm run clean && npm run sass && npm run uglify",
+    "build": "npm run clean && npm run sass && npm run uglify && node npm.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

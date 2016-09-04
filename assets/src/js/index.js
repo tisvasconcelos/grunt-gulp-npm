@@ -1,3 +1,3 @@
 (function(window){
-  window.alert('Grunt ou Gulp?');
+  window.alert('Grunt, Gulp ou NPM?');
 })(window);
